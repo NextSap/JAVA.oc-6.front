@@ -17,5 +17,6 @@ export const isTokenValid = () => {
         const currentTime = new Date().getTime();
         return decodedToken.exp > currentTime;
     }
+    removeToken();
     return false;
 }

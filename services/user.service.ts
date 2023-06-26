@@ -1,15 +1,20 @@
 import {api} from "@/config/ky.config";
-import {UserResponse} from "@/objects/response/user.response";
+import {UserResponseSchema} from "@/objects/response/user.response";
 import {UserRequest} from "@/objects/requests/user.request";
+import {base_url} from "@/config/service.config";
 
-const endpoint: string = "/user"
+const endpoint: string = `${base_url}/user`;
 
-export const getUser = async (): Promise<UserResponse> => {
-    return await api.get(endpoint).json();
+export const getUser = async () => {
+    return await api.get(endpoint).json().then(UserResponseSchema.parse);
 }
 
-export const updateUser = async (user: UserRequest): Promise<UserResponse> => {
-    return await api.put(endpoint, {json: user}).json();
+export const getUserById = async (id: string) => {
+    return await api.get(`${endpoint}/${id}`).json().then(UserResponseSchema.parse);
+}
+
+export const updateUser = async (user: UserRequest) => {
+    return await api.put(endpoint, {json: user}).json().then(UserResponseSchema.parse);
 }
 
 export const deleteUser = async () => {

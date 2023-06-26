@@ -47,31 +47,31 @@ const Signin = () => {
             <Image src={"/Logo.png"} width={200} height={200} alt={"Logo"}/>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Input register={register("firstName")}
-                       id="firstName" label="Prénom :" type="text"
-                       placeholder="Prénom"
+                       id="firstName" label="Firstname :" type="text"
+                       placeholder="Firstname"
                        errorMessage={errors.firstName?.message}
                 />
                 <Input register={register("lastName")}
-                       id="lastName" label="Nom :" type="text"
-                       placeholder="Nom"
+                       id="lastName" label="Lastname :" type="text"
+                       placeholder="Lastname"
                        errorMessage={errors.lastName?.message}
                 />
                 <Input register={register("email")}
-                       id="email" label="Adresse email :" type="email"
+                       id="email" label="Email :" type="email"
                        placeholder="Email"
                        errorMessage={errors.email?.message}
                 />
                 <Input register={register("password")}
-                       id="password" label="Mot de passe :" type="password"
-                       placeholder="Mot de passe"
+                       id="password" label="Password :" type="password"
+                       placeholder="Password"
                        errorMessage={errors.password?.message}
                 />
                 <Input register={register("confirmPassword")}
-                       id="confirmPassword" label="Confirmer le mot de passe :" type="password"
-                       placeholder="Confirmer le mot de passe"
+                       id="confirmPassword" label="Confirm password :" type="password"
+                       placeholder="Confirm password"
                        errorMessage={errors.confirmPassword?.message}
                 />
-                <Button type="submit">Log in</Button>
+                <Button type="submit">Sign in</Button>
                 <a onClick={() => router.push("/login")} className={"text-center text-[13px] cursor-pointer"}>
                     Already registered ?
                 </a>

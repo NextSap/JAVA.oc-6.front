@@ -1,7 +1,6 @@
 import ky from "ky";
 
 export const api = ky.extend({
-    prefixUrl: "https://localhost:8080",
     hooks: {
         beforeRequest: [
             request => {

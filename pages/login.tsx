@@ -38,16 +38,16 @@ const Login = () => {
             <Image src={"/Logo.png"} width={200} height={200} alt={"Logo"}/>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Input register={register("email")}
-                       id="email" label="Adresse email :" type="email"
+                       id="email" label="Email :" type="email"
                        placeholder="Email"
                        errorMessage={errors.email?.message}
                 />
                 <Input register={register("password")}
-                       id="password" label="Mot de passe :" type="password"
-                       placeholder="Mot de passe"
+                       id="password" label="Password :" type="password"
+                       placeholder="Password"
                        errorMessage={errors.password?.message}
                 />
-                <CheckBox register={register("rememberMe")} id="rememberMe" label="Se souvenir de moi"/>
+                <CheckBox register={register("rememberMe")} id="rememberMe" label="Remember me"/>
                 <Button type="submit">Log in</Button>
                 <a onClick={() => router.push("/signin")} className={"text-center text-[13px] cursor-pointer"}>
                     Not registered yet ?

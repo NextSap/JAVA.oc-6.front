@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {isTokenValid} from "@/utils/JWT.utils";
+import {isTokenValid} from "@/utils/Jwt.utils";
 import {useRouter} from "next/router";
 
 const AuthGuard = (props: { children: React.ReactNode }) => {

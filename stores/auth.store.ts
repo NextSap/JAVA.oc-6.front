@@ -16,6 +16,7 @@ export const useAuthStore = () => {
                 toast.success("Login successful");
                 router.push("/");
             }).catch((error: HTTPError) => {
+            console.log(error)
             error.response.text().then((text: string) => {
                 const error: Error = JSON.parse(text);
                 toast.error("Error when login: " + error.cause);
