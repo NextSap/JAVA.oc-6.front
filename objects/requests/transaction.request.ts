@@ -8,8 +8,10 @@ export type TransactionRequest = {
 }
 
 export const TransactionRequestSchema = z.object({
-    sender: z.string(),
-    receiver: z.string(),
+    sender: z.string().email(),
+    receiver: z.string().email(),
     description: z.string(),
-    amount: z.number(),
+    amount: z.number().positive(),
 });
+
+export type TransactionRequestSchemaType = z.infer<typeof TransactionRequestSchema>;

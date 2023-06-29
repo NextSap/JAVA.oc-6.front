@@ -6,6 +6,7 @@ const Document = () => {
         <Html lang="fr">
             <Head>
                 <link rel="icon" href="/MinimizedLogo.ico" />
+                <title>PayMyBuddy</title>
             </Head>
             <body>
                 <Main/>

@@ -7,6 +7,7 @@ import {ErrorBoundary} from "react-error-boundary";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/global.css";
 import {QueryClient, QueryClientProvider} from "react-query";
+import {ReactQueryDevtools} from "react-query/devtools";
 
 const App = ({Component, pageProps}: AppProps) => {
 
@@ -29,6 +30,7 @@ const App = ({Component, pageProps}: AppProps) => {
                         <Component {...pageProps} />
                     </AuthGuard>
                 </ErrorBoundary>
+                <ReactQueryDevtools/>
             </QueryClientProvider>
         </>
     );

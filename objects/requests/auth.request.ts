@@ -1,18 +1,5 @@
 import {z} from "zod";
 
-export type LoginRequest = {
-    email: string;
-    password: string;
-    rememberMe: boolean;
-}
-
-export type SigninRequest = {
-    email: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-}
-
 export const LoginRequestSchema = z.object({
     email: z.string().email(),
     password: z.string(),
@@ -25,3 +12,6 @@ export const SigninRequestSchema = z.object({
     firstName: z.string(),
     lastName: z.string()
 });
+
+export type LoginRequestSchemaType = z.infer<typeof LoginRequestSchema>;
+export type SigninRequestSchemaType = z.infer<typeof SigninRequestSchema>;

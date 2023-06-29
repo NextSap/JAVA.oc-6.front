@@ -17,3 +17,5 @@ export const UserRequestSchema = z.object({
     contacts: z.array(z.string()),
     balance: z.number().int().positive(),
 });
+
+export type UserRequestSchema = z.infer<typeof UserRequestSchema>;

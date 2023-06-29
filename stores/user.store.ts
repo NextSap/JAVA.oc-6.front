@@ -3,20 +3,29 @@ import {useQuery} from "react-query";
 import {UserRequest} from "@/objects/requests/user.request";
 import {toast} from "react-toastify";
 import {useRouter} from "next/router";
+import {HTTPError} from "ky";
+import {renderError} from "@/utils/Error.utils";
 
 export const useUserStore = () => {
     const router = useRouter();
     const getUser = () => {
-        const {data, isLoading, isError} = useQuery({
+        return useQuery({
             queryKey: 'users',
-            queryFn: userService.getUser
+            queryFn: userService.getUser,
+            onError: (error: HTTPError) => {
+                renderError(error, "Getting user failed");
+            }
         });
-
-        return {data, isLoading, isError};
     }
 
-    const getUserById = (id: string) => {
-        // TODO
+    const getUserByEmail = (email: string) => {
+        return useQuery({
+            queryKey: ['users', email],
+            queryFn: () => userService.getUserByEmail(email),
+            onError: (error: HTTPError) => {
+                renderError(error, "Getting user failed");
+            }
+        });
     }
 
     const updateUser = (user: UserRequest) => {
@@ -26,8 +35,8 @@ export const useUserStore = () => {
             onSuccess: () => {
                 toast.success('User updated successfully');
             },
-            onError: () => {
-                toast.error('Error updating user');
+            onError: (error: HTTPError) => {
+                renderError(error, "Updating user failed");
             }
         });
 
@@ -42,13 +51,13 @@ export const useUserStore = () => {
                 toast.success('User deleted successfully');
                 router.push("/login");
             },
-            onError: () => {
-                toast.error('Error deleting user');
+            onError: (error: HTTPError) => {
+                renderError(error, "Deleting user failed");
             }
         });
 
         return {data, isLoading, isError};
     }
 
-    return {getUser, getUserById, updateUser, deleteUser};
+    return {getUser, getUserByEmail, updateUser, deleteUser};
 }

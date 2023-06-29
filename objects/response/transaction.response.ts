@@ -1,22 +1,5 @@
 import {z} from "zod";
 
-export type TransactionResponse = {
-    id: number;
-    sender: string;
-    receiver: string;
-    description: string;
-    amount: number;
-    fees: number;
-    timestamp: number;
-    transactionType: TransactionType;
-}
-
-export enum TransactionType {
-    DEPOSIT = "DEPOSIT",
-    WITHDRAWAL = "WITHDRAWAL",
-    TRANSFER = "TRANSFER",
-}
-
 export const TransactionResponseSchema = z.object({
     id: z.number(),
     sender: z.string(),
@@ -25,7 +8,17 @@ export const TransactionResponseSchema = z.object({
     amount: z.number(),
     fees: z.number(),
     timestamp: z.number(),
-    transactionType: z.nativeEnum(TransactionType),
+});
+
+export const PaginationInfoResponseSchema = z.object({
+    totalPages: z.number(),
 });
 
 export const TransactionArrayResponseSchema = z.array(TransactionResponseSchema);
+
+export type TransactionResponseSchemaType = z.infer<typeof TransactionResponseSchema>;
+
+export type TransactionArrayResponseSchemaType = z.infer<typeof TransactionArrayResponseSchema>;
+
+
+export type PaginationInfoResponseSchemaType = z.infer<typeof PaginationInfoResponseSchema>;
