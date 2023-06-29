@@ -3,7 +3,7 @@ import {twMerge} from "tailwind-merge";
 
 type ButtonProps = {
     children: string
-    errorMessage?: string;
+    errormessage?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = (props: ButtonProps) => {

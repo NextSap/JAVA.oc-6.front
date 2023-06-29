@@ -40,12 +40,12 @@ const Login = () => {
                 <Input register={register("email")}
                        id="email" label="Email :" type="email"
                        placeholder="Email"
-                       errorMessage={errors.email?.message}
+                       errormessage={errors.email?.message}
                 />
                 <Input register={register("password")}
                        id="password" label="Password :" type="password"
                        placeholder="Password"
-                       errorMessage={errors.password?.message}
+                       errormessage={errors.password?.message}
                 />
                 <CheckBox register={register("rememberMe")} id="rememberMe" label="Remember me"/>
                 <Button type="submit">Log in</Button>

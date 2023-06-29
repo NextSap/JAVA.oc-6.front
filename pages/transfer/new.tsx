@@ -58,19 +58,19 @@ const NewTransfer = () => {
                     <Input register={register("email")}
                            id="email" label="Email :" type="email"
                            placeholder="Email"
-                           errorMessage={errors.email?.message}
+                           errormessage={errors.email?.message}
                     />
                     <div className="flex gap-3">
                         <Input register={register("amount", {valueAsNumber: true})}
                                id="amount" label="Amount :" type="number" step="0.01"
                                placeholder="Amount"
-                               errorMessage={errors.amount?.message}
+                               errormessage={errors.amount?.message}
                         />
                     </div>
                     <Input register={register("description")}
                            id="description" label="Description :" type="text"
                            placeholder="Description"
-                           errorMessage={errors.description?.message}
+                           errormessage={errors.description?.message}
                     />
 
                     <Button type="submit">Send</Button>

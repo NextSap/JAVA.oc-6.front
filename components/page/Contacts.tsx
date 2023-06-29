@@ -52,7 +52,7 @@ const Contacts = (props: ContactsProps) => {
                 <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
                     <Input register={register("email", {required: true})} type="text" id="email"
                            label={"Email of the contact :"}
-                           className="border rounded-xl p-2" placeholder="Email" errorMessage={errors.email?.message}/>
+                           className="border rounded-xl p-2" placeholder="Email" errormessage={errors.email?.message}/>
                     <div className="flex gap-2">
                         <Button type="submit" onClick={() => !errors && setInputVisible(false)}
                                 className="bg-green-300 hover:bg-green-200 w-full">Add</Button>

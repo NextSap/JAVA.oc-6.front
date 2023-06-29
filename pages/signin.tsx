@@ -49,27 +49,27 @@ const Signin = () => {
                 <Input register={register("firstName")}
                        id="firstName" label="Firstname :" type="text"
                        placeholder="Firstname"
-                       errorMessage={errors.firstName?.message}
+                       errormessage={errors.firstName?.message}
                 />
                 <Input register={register("lastName")}
                        id="lastName" label="Lastname :" type="text"
                        placeholder="Lastname"
-                       errorMessage={errors.lastName?.message}
+                       errormessage={errors.lastName?.message}
                 />
                 <Input register={register("email")}
                        id="email" label="Email :" type="email"
                        placeholder="Email"
-                       errorMessage={errors.email?.message}
+                       errormessage={errors.email?.message}
                 />
                 <Input register={register("password")}
                        id="password" label="Password :" type="password"
                        placeholder="Password"
-                       errorMessage={errors.password?.message}
+                       errormessage={errors.password?.message}
                 />
                 <Input register={register("confirmPassword")}
                        id="confirmPassword" label="Confirm password :" type="password"
                        placeholder="Confirm password"
-                       errorMessage={errors.confirmPassword?.message}
+                       errormessage={errors.confirmPassword?.message}
                 />
                 <Button type="submit">Sign in</Button>
                 <a onClick={() => router.push("/login")} className={"text-center text-[13px] cursor-pointer"}>
