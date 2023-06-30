@@ -44,10 +44,8 @@ const Contacts = (props: ContactsProps) => {
     }
 
     return (
-        <div className="flex flex-col gap-5 border rounded-xl bg-white p-5 w-[300px]">
+        <div className="flex flex-col gap-5 border rounded-xl bg-white p-5 w-[400px]">
             <p className="text-xl">Contacts</p>
-            {!inputVisible && <Button onClick={() => setInputVisible(true)} className="bg-green-300 hover:bg-green-200">Add
-                contact</Button>}
             {inputVisible && <div className="flex flex-col gap-5">
                 <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
                     <Input register={register("email", {required: true})} type="text" id="email"
@@ -62,8 +60,8 @@ const Contacts = (props: ContactsProps) => {
                 </form>
             </div>}
             <div className="flex flex-col gap-5">
-                {contactsList.length == 0 ? "No contacts" : props.user.contacts.map((email, index) => <Contact
-                    key={index} email={email}/>)}
+                {contactsList.length == 0 ? "No contacts" : props.user.contacts.map((email, index) =>
+                    <Contact key={index} email={email}/>)}
             </div>
         </div>
     );
@@ -74,13 +72,17 @@ type ContactProps = {
 }
 
 const Contact = (props: ContactProps) => {
-    const {data: user, isLoading, isIdle, isError} = useUserStore().getUserByEmail(props.email);
+    const userStore = useUserStore();
+    const {data: user, isLoading, isIdle, isError}
+        = userStore.getUserByEmail(props.email);
+    const router = useRouter();
 
     if (isLoading || isIdle) return <Loading/>
     if (isError) return <p>Error</p>
 
     return (
-        <div className="border rounded-xl bg-white p-5">
+        <div onClick={() => router.push("/transfer/new?email=" + user.email)}
+             className="flex justify-between border rounded-xl bg-white p-5 cursor-pointer hover:drop-shadow-md">
             <p>{fullName(user)} • {user.email}</p>
         </div>
     );

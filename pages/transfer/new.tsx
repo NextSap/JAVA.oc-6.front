@@ -24,6 +24,7 @@ type FormValues = z.infer<typeof TransferSchema>;
 const NewTransfer = () => {
 
     const router = useRouter();
+    const query = router.query;
     const userStore = useUserStore();
 
     const {data: user, isError, isLoading, isIdle} = userStore.getUser();
@@ -59,6 +60,7 @@ const NewTransfer = () => {
                            id="email" label="Email :" type="email"
                            placeholder="Email"
                            errormessage={errors.email?.message}
+                           defaultValue={query.email ? query.email : ""}
                     />
                     <div className="flex gap-3">
                         <Input register={register("amount", {valueAsNumber: true})}
