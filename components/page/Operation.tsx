@@ -48,7 +48,9 @@ const renderSwitch = (transaction: TransactionResponseSchemaType, userEmail: str
                 <p className="flex justify-between">
                     <span>→ <span className="font-semibold">{fullName(sender)}</span>
                     </span>
-                    <span className="text-green-500">+ {transaction.amount.toFixed(2)} €</span></p>
+                    <span className="flex flex-col items-end"><span className="text-green-500">+ {transaction.amount.toFixed(2)} €</span>
+                        <span className="text-red-500">- {(transaction.amount * 0.005).toFixed(2)} €</span>
+                    </span></p>
             </>
         );
 };

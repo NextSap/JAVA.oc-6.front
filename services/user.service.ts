@@ -22,5 +22,5 @@ export const updateUser = async (user: UserRequestSchema) => {
 }
 
 export const deleteUser = async () => {
-    await api.delete(endpoint);
+    return api.delete(endpoint);
 }

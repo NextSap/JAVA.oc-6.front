@@ -37,7 +37,8 @@ const TransferPage = () => {
     if (isErrorUser || isErrorTransactions || isErrorPaginationInfo) return <p>Error</p>;
 
     return (
-        <Layout isLoading={isLoadingUser || isLoadingTransactions || isLoadingPaginationInfo || isIdleTransactions || isIdlePaginationInfo || isIdleUser}>
+        <Layout
+            isLoading={isLoadingUser || isLoadingTransactions || isLoadingPaginationInfo || isIdleTransactions || isIdlePaginationInfo || isIdleUser}>
             <div className="flex flex-col justify-center items-center w-[80%] p-5">
                 <div className="flex justify-end w-full mb-5">
                     <Button className="p-2 w-32" onClick={() => router.push("/transfer/new")}>New transfer</Button>
@@ -53,11 +54,14 @@ const TransferPage = () => {
                                          contrasted={index % 2 == 0}/>;
                     })}
                 </div>
-                <div className="flex justify-center items-center gap-3 p-5">
-                    <Button className="w-20" onClick={() => setPage(page - 1)} disabled={page == 1}>Previous</Button>
-                    <p>{page} / {totalPages}</p>
-                    <Button className="w-20" onClick={() => setPage(page + 1)} disabled={page == totalPages}>Next</Button>
-                </div>
+                {totalPages !== 0 &&
+                    <div className="flex justify-center items-center gap-3 p-5">
+                        <Button className="w-20" onClick={() => setPage(page - 1)}
+                                disabled={page == 1}>Previous</Button>
+                        <p>{page} / {totalPages}</p>
+                        <Button className="w-20" onClick={() => setPage(page + 1)}
+                                disabled={page == (totalPages)}>Next</Button>
+                    </div>}
             </div>
         </Layout>
     );

@@ -46,6 +46,7 @@ const Contacts = (props: ContactsProps) => {
     return (
         <div className="flex flex-col gap-5 border rounded-xl bg-white p-5 w-[400px]">
             <p className="text-xl">Contacts</p>
+            {!inputVisible && <Button className="bg-green-300 hover:bg-green-200" onClick={() => setInputVisible(true)}>Add a contact</Button>}
             {inputVisible && <div className="flex flex-col gap-5">
                 <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
                     <Input register={register("email", {required: true})} type="text" id="email"
@@ -82,7 +83,7 @@ const Contact = (props: ContactProps) => {
 
     return (
         <div onClick={() => router.push("/transfer/new?email=" + user.email)}
-             className="flex justify-between border rounded-xl bg-white p-5 cursor-pointer hover:drop-shadow-md">
+             className="flex justify-between border rounded-xl bg-white p-5 cursor-pointer duration-300 hover:drop-shadow-md">
             <p>{fullName(user)} • {user.email}</p>
         </div>
     );
