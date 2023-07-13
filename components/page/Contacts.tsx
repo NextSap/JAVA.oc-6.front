@@ -33,6 +33,11 @@ const Contacts = (props: ContactsProps) => {
         = useForm<FormValues>({resolver: zodResolver(AddContactSchema)});
 
     const onSubmit = (data: FormValues) => {
+        if(data.email === props.user.email) {
+            toast.error("You can't add yourself as a contact");
+            return;
+        }
+
         addContact(data.email)
             .then(() => {
                 toast.success("Contact added");
