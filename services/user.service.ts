@@ -24,3 +24,7 @@ export const updateUser = async (user: UserRequestSchema) => {
 export const deleteUser = async () => {
     return api.delete(endpoint);
 }
+
+export const transferMoney = async (transferType: "DEPOSIT" | "WITHDRAWAL", amount: number) => {
+    return await api.post(`${endpoint}/transfer-money`, {searchParams: {transferType: transferType, amount: amount}}).json().then(UserResponseSchema.parse);
+}

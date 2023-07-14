@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <Layout isLoading={user.isLoading}>
             <div className="flex flex-col p-5 gap-20">
-                <AvailableBalance balance={user.data.balance}/>
+                <AvailableBalance balance={user.data.balance} user={user.data}/>
                 <LastOperations user={user.data}/>
             </div>
         </Layout>
