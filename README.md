@@ -1,6 +1,6 @@
 ![Logo.png](public%2FLogo.png)
 
-<a target="_blank" href="https://github.com/NextSap/java.oc-6.front">BACKEND</a> | FRONTEND
+<a target="_blank" href="https://github.com/NextSap/java.oc-6.back">BACKEND</a> | FRONTEND
 
 # PayMyBuddy
 PayMyBuddy est une application web de transfert d'argent.
